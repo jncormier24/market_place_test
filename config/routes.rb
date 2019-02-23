@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :records
       resources :artists
+      resources :users
     end
   end
 
-  root_to: "home#index"
+  root to: "home#index"
 end
