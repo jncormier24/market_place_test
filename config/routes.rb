@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   end
 
   root to: "home#index"
+
+  post "refresh", controller: :refresh, action: :create
+  post "signup", controller: :signup, action: :create
+  post "login", controller: :login, action: :create
+
+  delete "login", controller: :login, action: :destroy
 end
