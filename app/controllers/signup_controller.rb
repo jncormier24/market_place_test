@@ -1,6 +1,6 @@
 class SignupController < ApplicationController
     def create
-        user = User.find(user_params)
+        user = User.new(user_params)
 
         if user.save
             payload = { user_id: user.id }
@@ -13,10 +13,10 @@ class SignupController < ApplicationController
                 secure: Rails.env.production?
             )
 
-            render json: { csrf: tokens[:csrf] }
+            return render json: { csrf: tokens[:csrf] }
         end
 
-        render json: { error: user.errors.full_messages.join(' ') }, status: :unprocessable_entity
+        return render json: { error: user.errors.full_messages.join(' ') }, status: :unprocessable_entity
     end
 
     private

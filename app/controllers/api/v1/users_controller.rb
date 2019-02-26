@@ -4,8 +4,8 @@ module Api
             before_action :authorize_access_request!
 
             def index
-                @users = Users.all
-                return json @users
+                @users = User.all
+                render json: @users
             end
         end
     end
